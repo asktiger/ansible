@@ -1,0 +1,29 @@
+#network_bond_interfaces:
+#  - device: bond0
+#    bootproto: static
+#    bond_mode: balance-alb
+#    bond_miimon: 100
+#    bond_slaves: [eth0, eth1]
+
+#network_vlan_interfaces:
+#  - device: bond0.1609
+#    bootproto: static
+#    address: 10.106.9.111
+#    netmask: 255.255.255.0
+#    gateway: 10.106.9.1
+
+network_ether_interfaces:
+  - device: eth0
+    bootproto: static
+    onboot: yes
+    address: 10.106.12.111
+    netmask: 255.255.255.0
+    gateway: 10.106.12.1
+
+#network_vlan_interfaces:
+#  - device: eth0.1609
+#    bootproto: static
+#    address: 10.106.9.111
+#    netmask: 255.255.255.0
+#    gateway: 10.106.9.1
+

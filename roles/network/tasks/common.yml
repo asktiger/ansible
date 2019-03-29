@@ -1,0 +1,36 @@
+---
+- name: Set authorized key for root user copying it from current user
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+
+- name: Setup the hostname
+  hostname:
+    name="{{ inventory_hostname }}"
+  when:
+    ansible_fqdn != ansible_ssh_host
+
+- name: "Build hosts file" 
+  template:
+    src=etc/hosts.j2
+    dest=/etc/hosts
+
+- name: Disable selinux
+  command: /sbin/setenforce 0
+  ignore_errors: True
+
+- name: Stop firewalld
+  command: echo "Firewalld stoped"
+  notify: "Stop Firewall"
+
+- name: Disable firwalld
+  command: /usr/bin/systemctl disable firewalld
+  ignore_errors: True
+
+
+
+
+
+
+

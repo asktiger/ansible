@@ -1,0 +1,25 @@
+---
+- name: Make /mnt/local-storage directory for storage class
+  file:
+    path: /mnt/local-storage
+    state: directory
+    
+- name: Copy setup-volumes-agent.sh to Remote hosts
+  copy:
+    src: files/setup-volumes-agent.sh
+    dest: ~/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Execute setup-volumes-agent.sh for Remote hosts mount point
+  command: ~/setup-volumes-agent.sh
+  ignore_errors: True
+
+
+
+
+
+
+
+

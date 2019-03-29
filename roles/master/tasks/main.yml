@@ -1,0 +1,9 @@
+---
+- name: Copy local-storage-provisioner.yaml to Remote hosts
+  copy:
+    src: files/local-storage-provisioner.yaml
+    dest: ~/
+    owner: root
+    group: root
+    mode: 0644
+
