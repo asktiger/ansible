@@ -44,7 +44,7 @@
 #10.106.12.101
 #10.106.12.102
 
-[all]
+[pre-servers]
 master-1 ansible_host=10.106.12.111 ansible_ssh_user=root  ansible_ssh_pass="P@ssw0rd"
 worker-1 ansible_host=10.106.12.112 ansible_ssh_user=root  ansible_ssh_pass="P@ssw0rd"
 worker-2 ansible_host=10.106.12.113 ansible_ssh_user=root  ansible_ssh_pass="P@ssw0rd"

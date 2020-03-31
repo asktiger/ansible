@@ -1,7 +1,18 @@
 ---
 - hosts: all
+  user: root
+  tasks:
+    - name: ssh-copy
+      authorized_key: 
+        user: root 
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      tags:
+        - sshkey
+
+- hosts: network
   roles:
-    - role: network
+#    - role: network
+#    - role: common
 
 - hosts: master 
   roles:
@@ -10,3 +21,4 @@
 - hosts: worker
   roles:
     - role: worker 
+
